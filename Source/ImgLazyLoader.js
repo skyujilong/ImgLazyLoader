@@ -17,6 +17,10 @@
     var querySelector = document.querySelectorAll || null;
     var viewHeight = root.innerheight || document.body.clientHeight;
     var viewWidth = root.innerwidth || document.body.clientWidth;
+    var last_pos = {
+        x : 0,
+        y : 0
+    };
     //对应的所有要显示的dom集合
     var imgList = [];
     var previousImgLazyLoader = root.ImgLazyLoader;
@@ -87,18 +91,23 @@
 
     root.onscroll = function(){
         var pos = getWindowLeftPoint();
-        Array.prototype.forEach.call(imgList,function(img){
-            if(pos.x >= img.x && pos.y >= img.y && !img.isRender){
-                img.dom.src = img.imgUrl;
-                img.isRender = true;
-            }
-        });
+        if(pos.x - last_pos.x > 500 || pos.y - last_pos.y > 500){
+            last_pos = pos;
+            Array.prototype.forEach.call(imgList,function(img){
+                if(pos.x >= img.x && pos.y >= img.y && !img.isRender){
+                    img.dom.src = img.imgUrl;
+                    img.isRender = true;
+                }
+            });
+        }
+
     };
 
     function getWindowLeftPoint(){
         return {
-            x : root.screenLeft || root.screenX + root.innerwidth || document.body.clientWidth,
-            y : root.screenTop || root.screenY + root.innerheight || document.body.clientHeight
+            //提前加载的偏移量500
+            x : root.screenLeft || root.screenX + viewWidth + 500,
+            y : root.screenTop || root.screenY + viewHeight + 500
         }
     }
 
