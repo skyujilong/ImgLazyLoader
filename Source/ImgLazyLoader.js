@@ -12,11 +12,8 @@
     root.ImgLazyLoader = factory(root,{});
 
 })(this,function(root,ImgLazyLoader){
-
     var getElementByClass = document.getElementsByClassName || null;
-    var querySelector = document.querySelectorAll || null;
-    var viewHeight = root.innerheight || document.body.clientHeight;
-    var viewWidth = root.innerwidth || document.body.clientWidth;
+    var viewHeight , viewWidth;
     var last_pos = {
         x : 0,
         y : 0
@@ -50,6 +47,8 @@
     }
 
     ImgLazyLoader.init = function(config){
+        viewHeight = root.innerHeight || document.documentElement.clientHeight;
+        viewWidth = root.innerWidth || document.documentElement.clientWidth;
         ImgLazyLoader.imgQueue = [];
         if(config.selecter){
             ImgLazyLoader.selecter = config.selecter;
@@ -63,8 +62,8 @@
     };
     //目前仅支持class选择器
     ImgLazyLoader.pushToImgQueue = function(){
-        if(querySelector){
-            Array.prototype.forEach.call(querySelector(ImgLazyLoader.selecter),function(img){
+        if(document.querySelectorAll){
+            Array.prototype.forEach.call( document.querySelectorAll(ImgLazyLoader.selecter),function(img){
                 imgList.push(getImageInfo(img));
             });
         }else{
@@ -91,10 +90,13 @@
 
     root.onscroll = function(){
         var pos = getWindowLeftPoint();
+        console.log(pos);
         if(pos.x - last_pos.x > 500 || pos.y - last_pos.y > 500){
             last_pos = pos;
             Array.prototype.forEach.call(imgList,function(img){
-                if(pos.x >= img.x && pos.y >= img.y && !img.isRender){
+                if(!img.isRender && pos.x > img.x && pos.y > img.y ){
+                    console.log("pos-y:"+pos.y);
+                    console.log("img-y:"+img.y);
                     img.dom.src = img.imgUrl;
                     img.isRender = true;
                 }
@@ -106,8 +108,8 @@
     function getWindowLeftPoint(){
         return {
             //提前加载的偏移量500
-            x : root.screenLeft || root.screenX + viewWidth + 500,
-            y : root.screenTop || root.screenY + viewHeight + 500
+            x : root.pageXOffset + viewWidth + 500,
+            y : root.pageYOffset + viewHeight + 500
         }
     }
 

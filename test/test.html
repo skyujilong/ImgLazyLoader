@@ -6,16 +6,58 @@
     <script src="./../Source/ImgLazyLoader.js"></script>
     <script>
 
-//        console.log(ImgLazyLoader);
+        window.onload = function(){
+            ImgLazyLoader.init({
+                "selecter" : ".lazy-img"
+            });
+        }
 
     </script>
 </head>
 <body>
-    <div data-id-s="xxxxx"></div>
-    <script>
+    <ul>
 
-        console.log(document.getElementsByTagName("div")[0].getAttribute("data-id-s"));
+        <li><img class="lazy-img" src="img/airport-soppt-1920x1080.jpg" data-src="img/2012_cls550_wald_black_bison_wrapped_in_satin_orange-soppt-1920x1080.jpg" style="max-width: 500px;min-width: 400px;"></li>
+        <li><img class="lazy-img" src="img/airport-soppt-1920x1080.jpg" data-src="img/2013_hyundai_hnd_9_concept-soppt-1920x1080.jpg" style="max-width: 500px;min-width: 400px;"></li>
+        <li><img class="lazy-img" src="img/airport-soppt-1920x1080.jpg" data-src="img/2013_lamborghini_aventador-soppt-1920x1080.jpg" style="max-width: 500px;min-width: 400px;"></li>
+        <li><img class="lazy-img" src="img/airport-soppt-1920x1080.jpg" data-src="img/2013_lamborghini_veneno_car-soppt-1920x1080.jpg" style="max-width: 500px;min-width: 400px;"></li>
+        <li><img class="lazy-img" src="img/airport-soppt-1920x1080.jpg" data-src="img/2014_alfa_romeo_4c-soppt-1920x1080.jpg" style="max-width: 500px;min-width: 400px;"></li>
+        <li><img class="lazy-img" src="img/airport-soppt-1920x1080.jpg" data-src="img/2014_mclaren_p1_luxury_car-soppt-1920x1080.jpg" style="max-width: 500px;min-width: 400px;"></li>
+        <li><img class="lazy-img" src="img/airport-soppt-1920x1080.jpg" data-src="img/2014_mclaren_p1_ready_to_go-soppt-1920x1080.jpg" style="max-width: 500px;min-width: 400px;"></li>
+        <li><img class="lazy-img" src="img/airport-soppt-1920x1080.jpg" data-src="img/2014_mclaren_p1_yellow-soppt-1920x1080.jpg" style="max-width: 500px;min-width: 400px;"></li>
+        <li><img class="lazy-img" src="img/airport-soppt-1920x1080.jpg" data-src="img/2012_cls550_wald_black_bison_wrapped_in_satin_orange-soppt-1920x1080.jpg" style="max-width: 500px;min-width: 400px;"></li>
+        <li><img class="lazy-img" src="img/airport-soppt-1920x1080.jpg" data-src="img/2013_hyundai_hnd_9_concept-soppt-1920x1080.jpg" style="max-width: 500px;min-width: 400px;"></li>
+        <li><img class="lazy-img" src="img/airport-soppt-1920x1080.jpg" data-src="img/2013_lamborghini_aventador-soppt-1920x1080.jpg" style="max-width: 500px;min-width: 400px;"></li>
+        <li><img class="lazy-img" src="img/airport-soppt-1920x1080.jpg" data-src="img/2013_lamborghini_veneno_car-soppt-1920x1080.jpg" style="max-width: 500px;min-width: 400px;"></li>
+        <li><img class="lazy-img" src="img/airport-soppt-1920x1080.jpg" data-src="img/2014_alfa_romeo_4c-soppt-1920x1080.jpg" style="max-width: 500px;min-width: 400px;"></li>
+        <li><img class="lazy-img" src="img/airport-soppt-1920x1080.jpg" data-src="img/2014_mclaren_p1_luxury_car-soppt-1920x1080.jpg" style="max-width: 500px;min-width: 400px;"></li>
+        <li><img class="lazy-img" src="img/airport-soppt-1920x1080.jpg" data-src="img/2014_mclaren_p1_ready_to_go-soppt-1920x1080.jpg" style="max-width: 500px;min-width: 400px;"></li>
+        <li><img class="lazy-img" src="img/airport-soppt-1920x1080.jpg" data-src="img/2014_mclaren_p1_yellow-soppt-1920x1080.jpg" style="max-width: 500px;min-width: 400px;"></li>
+        <li><img class="lazy-img" src="img/airport-soppt-1920x1080.jpg" data-src="img/2012_cls550_wald_black_bison_wrapped_in_satin_orange-soppt-1920x1080.jpg" style="max-width: 500px;min-width: 400px;"></li>
+        <li><img class="lazy-img" src="img/airport-soppt-1920x1080.jpg" data-src="img/2013_hyundai_hnd_9_concept-soppt-1920x1080.jpg" style="max-width: 500px;min-width: 400px;"></li>
+        <li><img class="lazy-img" src="img/airport-soppt-1920x1080.jpg" data-src="img/2013_lamborghini_aventador-soppt-1920x1080.jpg" style="max-width: 500px;min-width: 400px;"></li>
+        <li><img class="lazy-img" src="img/airport-soppt-1920x1080.jpg" data-src="img/2013_lamborghini_veneno_car-soppt-1920x1080.jpg" style="max-width: 500px;min-width: 400px;"></li>
+        <li><img class="lazy-img" src="img/airport-soppt-1920x1080.jpg" data-src="img/2014_alfa_romeo_4c-soppt-1920x1080.jpg" style="max-width: 500px;min-width: 400px;"></li>
+        <li><img class="lazy-img" src="img/airport-soppt-1920x1080.jpg" data-src="img/2014_mclaren_p1_luxury_car-soppt-1920x1080.jpg" style="max-width: 500px;min-width: 400px;"></li>
+        <li><img class="lazy-img" src="img/airport-soppt-1920x1080.jpg" data-src="img/2014_mclaren_p1_ready_to_go-soppt-1920x1080.jpg" style="max-width: 500px;min-width: 400px;"></li>
+        <li><img class="lazy-img" src="img/airport-soppt-1920x1080.jpg" data-src="img/2014_mclaren_p1_yellow-soppt-1920x1080.jpg" style="max-width: 500px;min-width: 400px;"></li>
+        <li><img class="lazy-img" src="img/airport-soppt-1920x1080.jpg" data-src="img/2012_cls550_wald_black_bison_wrapped_in_satin_orange-soppt-1920x1080.jpg" style="max-width: 500px;min-width: 400px;"></li>
+        <li><img class="lazy-img" src="img/airport-soppt-1920x1080.jpg" data-src="img/2013_hyundai_hnd_9_concept-soppt-1920x1080.jpg" style="max-width: 500px;min-width: 400px;"></li>
+        <li><img class="lazy-img" src="img/airport-soppt-1920x1080.jpg" data-src="img/2013_lamborghini_aventador-soppt-1920x1080.jpg" style="max-width: 500px;min-width: 400px;"></li>
+        <li><img class="lazy-img" src="img/airport-soppt-1920x1080.jpg" data-src="img/2013_lamborghini_veneno_car-soppt-1920x1080.jpg" style="max-width: 500px;min-width: 400px;"></li>
+        <li><img class="lazy-img" src="img/airport-soppt-1920x1080.jpg" data-src="img/2014_alfa_romeo_4c-soppt-1920x1080.jpg" style="max-width: 500px;min-width: 400px;"></li>
+        <li><img class="lazy-img" src="img/airport-soppt-1920x1080.jpg" data-src="img/2014_mclaren_p1_luxury_car-soppt-1920x1080.jpg" style="max-width: 500px;min-width: 400px;"></li>
+        <li><img class="lazy-img" src="img/airport-soppt-1920x1080.jpg" data-src="img/2014_mclaren_p1_ready_to_go-soppt-1920x1080.jpg" style="max-width: 500px;min-width: 400px;"></li>
+        <li><img class="lazy-img" src="img/airport-soppt-1920x1080.jpg" data-src="img/2014_mclaren_p1_yellow-soppt-1920x1080.jpg" style="max-width: 500px;min-width: 400px;"></li>
+        <li><img class="lazy-img" src="img/airport-soppt-1920x1080.jpg" data-src="img/2012_cls550_wald_black_bison_wrapped_in_satin_orange-soppt-1920x1080.jpg" style="max-width: 500px;min-width: 400px;"></li>
+        <li><img class="lazy-img" src="img/airport-soppt-1920x1080.jpg" data-src="img/2013_hyundai_hnd_9_concept-soppt-1920x1080.jpg" style="max-width: 500px;min-width: 400px;"></li>
+        <li><img class="lazy-img" src="img/airport-soppt-1920x1080.jpg" data-src="img/2013_lamborghini_aventador-soppt-1920x1080.jpg" style="max-width: 500px;min-width: 400px;"></li>
+        <li><img class="lazy-img" src="img/airport-soppt-1920x1080.jpg" data-src="img/2013_lamborghini_veneno_car-soppt-1920x1080.jpg" style="max-width: 500px;min-width: 400px;"></li>
+        <li><img class="lazy-img" src="img/airport-soppt-1920x1080.jpg" data-src="img/2014_alfa_romeo_4c-soppt-1920x1080.jpg" style="max-width: 500px;min-width: 400px;"></li>
+        <li><img class="lazy-img" src="img/airport-soppt-1920x1080.jpg" data-src="img/2014_mclaren_p1_luxury_car-soppt-1920x1080.jpg" style="max-width: 500px;min-width: 400px;"></li>
+        <li><img class="lazy-img" src="img/airport-soppt-1920x1080.jpg" data-src="img/2014_mclaren_p1_ready_to_go-soppt-1920x1080.jpg" style="max-width: 500px;min-width: 400px;"></li>
+        <li><img class="lazy-img" src="img/airport-soppt-1920x1080.jpg" data-src="img/2014_mclaren_p1_yellow-soppt-1920x1080.jpg" style="max-width: 500px;min-width: 400px;"></li>
 
-    </script>
+    </ul>
 </body>
 </html>
