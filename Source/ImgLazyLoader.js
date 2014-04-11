@@ -100,8 +100,6 @@
            last_pos = pos;
            Array.prototype.forEach.call(imgList,function(img){
                if(!img.isRender && pos.x > img.x && pos.y > img.y ){
-                   console.log("pos-y:"+pos.y);
-                   console.log("img-y:"+img.y);
                    img.dom.src = img.imgUrl;
                    img.isRender = true;
                }
