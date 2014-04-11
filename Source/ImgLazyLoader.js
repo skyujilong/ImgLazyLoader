@@ -67,19 +67,40 @@
     //目前仅支持class选择器
     ImgLazyLoader.pushToImgQueue = function(){
         if(document.querySelectorAll){
-            Array.prototype.forEach.call( document.querySelectorAll(ImgLazyLoader.selecter),function(img){
-                imgList.push(getImageInfo(img));
-            });
+            if(Array.prototype.forEach){
+                Array.prototype.forEach.call( document.querySelectorAll(ImgLazyLoader.selecter),function(img){
+                    imgList.push(getImageInfo(img));
+                });
+            }else{
+                forEach(document.querySelectorAll(ImgLazyLoader.selecter),function(img){
+                    imgList.push(getImageInfo(img));
+                });
+            }
         }else{
             var tmp_selecter = '/' + ImgLazyLoader.selecter.replace(/\./g,"") + '/';
-            Array.prototype.forEach.call(document.images,function(img){
-                if(eval(tmp_selecter).test(img.className)){
-                    imgList.push(getImageInfo(img));
-                }
-            });
+            if(Array.prototype.forEach){
+                Array.prototype.forEach.call(document.images,function(img){
+                    if(eval(tmp_selecter).test(img.className)){
+                        imgList.push(getImageInfo(img));
+                    }
+                });
+            }else{
+                forEach(document.images,function(img){
+                    if(eval(tmp_selecter).test(img.className)){
+                        imgList.push(getImageInfo(img));
+                    }
+                });
+            }
+
         }
 
     };
+
+    function forEach(list,callback){
+        for(var i = 0, len = list.length; i < len; i ++){
+            callback(list[i],i);
+        }
+    }
 
     function getImageInfo(ele){
         var offset = getEleOffset(ele);
