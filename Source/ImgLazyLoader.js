@@ -59,6 +59,10 @@
         ImgLazyLoader.imgSource = config.imgSource || 'data-src';
 
         ImgLazyLoader.pushToImgQueue();
+        /**
+         * 首次加载的时候 直接执行第一屏的渲染操作
+         */
+        renderImg();
     };
     //目前仅支持class选择器
     ImgLazyLoader.pushToImgQueue = function(){
@@ -88,22 +92,22 @@
         };
     }
 
-    root.onscroll = function(){
-        var pos = getWindowLeftPoint();
-        console.log(pos);
-        if(pos.x - last_pos.x > 500 || pos.y - last_pos.y > 500){
-            last_pos = pos;
-            Array.prototype.forEach.call(imgList,function(img){
-                if(!img.isRender && pos.x > img.x && pos.y > img.y ){
-                    console.log("pos-y:"+pos.y);
-                    console.log("img-y:"+img.y);
-                    img.dom.src = img.imgUrl;
-                    img.isRender = true;
-                }
-            });
-        }
+    root.onscroll = renderImg;
 
-    };
+   function renderImg(){
+       var pos = getWindowLeftPoint();
+       if(pos.x - last_pos.x > 500 || pos.y - last_pos.y > 500){
+           last_pos = pos;
+           Array.prototype.forEach.call(imgList,function(img){
+               if(!img.isRender && pos.x > img.x && pos.y > img.y ){
+                   console.log("pos-y:"+pos.y);
+                   console.log("img-y:"+img.y);
+                   img.dom.src = img.imgUrl;
+                   img.isRender = true;
+               }
+           });
+       }
+   }
 
     function getWindowLeftPoint(){
         return {
