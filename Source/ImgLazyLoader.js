@@ -47,8 +47,8 @@
     }
 
     ImgLazyLoader.init = function(config){
-        viewHeight = root.innerHeight || document.documentElement.clientHeight;
-        viewWidth = root.innerWidth || document.documentElement.clientWidth;
+        viewHeight = root.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+        viewWidth = root.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
         ImgLazyLoader.imgQueue = [];
         if(config.selecter){
             ImgLazyLoader.selecter = config.selecter;
@@ -119,20 +119,30 @@
        var pos = getWindowLeftPoint();
        if(pos.x - last_pos.x > 500 || pos.y - last_pos.y > 500){
            last_pos = pos;
-           Array.prototype.forEach.call(imgList,function(img){
-               if(!img.isRender && pos.x > img.x && pos.y > img.y ){
-                   img.dom.src = img.imgUrl;
-                   img.isRender = true;
-               }
-           });
+           if(Array.prototype.forEach){
+               Array.prototype.forEach.call(imgList,function(img){
+                   if(!img.isRender && pos.x > img.x && pos.y > img.y ){
+                       img.dom.src = img.imgUrl;
+                       img.isRender = true;
+                   }
+               });
+           }else{
+               forEach(imgList,function(img){
+                   if(!img.isRender && pos.x > img.x && pos.y > img.y ){
+                       img.dom.src = img.imgUrl;
+                       img.isRender = true;
+                   }
+               });
+           }
+
        }
    }
 
     function getWindowLeftPoint(){
         return {
             //提前加载的偏移量500
-            x : root.pageXOffset + viewWidth + 500,
-            y : root.pageYOffset + viewHeight + 500
+            x : (root.pageXOffset || document.body.scrollLeft) + viewWidth + 500,
+            y : (root.pageYOffset || document.body.scrollTop) + viewHeight + 500
         }
     }
 
