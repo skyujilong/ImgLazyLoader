@@ -47,8 +47,8 @@
     }
 
     ImgLazyLoader.init = function(config){
-        viewHeight = root.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
-        viewWidth = root.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+        viewHeight = root.innerHeight || document.documentElement.clientHeight || document.body.offsetWidth;
+        viewWidth = root.innerWidth || document.documentElement.clientWidth || document.body.offsetHeight;
         ImgLazyLoader.imgQueue = [];
         if(config.selecter){
             ImgLazyLoader.selecter = config.selecter;
